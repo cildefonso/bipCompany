@@ -1,0 +1,16 @@
+dist: trusty
+language: java
+sudo: false
+jdk:
+- oraclejdk9
+# would just use default install/script but the ./mvnw script errors on travis
+# obviously this only works for maven builds right now...
+install:
+- true
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+#- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+script:
+- mvn test -B
+#- mvn clean install
+#- Teste
+- mvn -U clean install
