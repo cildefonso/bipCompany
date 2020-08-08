@@ -1,3 +1,4 @@
+#https://www.youtube.com/watch?v=Uft5KBimzyk
 dist: trusty
 language: java
 sudo: false
@@ -24,7 +25,7 @@ addons:
       - mysql-server
       
 sudo: required
-dist: trusty
+
 #dist: xenial
 before_script:
 #  - cp .env.travis .env
