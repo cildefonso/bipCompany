@@ -42,11 +42,11 @@ before_script:
 #  - cp .env.travis .env
 #  - sudo mysql -e 'CREATE DATABASE testing;'
 
-
+dist: trusty
 install:
 - true
-#- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+#- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
 - mvn test -B
 #- mvn clean install
