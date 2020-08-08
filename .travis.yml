@@ -5,8 +5,8 @@ jdk:
 - oraclejdk9
 # would just use default install/script but the ./mvnw script errors on travis
 # obviously this only works for maven builds right now...
-#services:
-#- mysql
+services:
+- mysql
 install:
 - true
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
@@ -16,10 +16,10 @@ script:
 #- mvn clean install
 #- Teste
 - mvn -U clean install
-addons:
-  apt:
-   sources:
-    - mysql-5.7-trusty
-   packages:
-    - mysql-server
-    - mysql-client
+#addons:
+#  apt:
+#   sources:
+#    - mysql-5.7-trusty
+#   packages:
+#    - mysql-server
+#    - mysql-client
