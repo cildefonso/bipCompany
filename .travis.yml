@@ -14,8 +14,7 @@ before_install:
 # - sudo apt-get autoremove
 #- sudo apt-get autoclean
 # - sudo apt install mysql-client-core-5.7
- - sudo -E apt install mysql-server 
-
+# - sudo -E apt install mysql-server 
 
 addons:
   apt:
