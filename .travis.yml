@@ -3,8 +3,8 @@ script:
 #- mvn clean install
 #- Teste
 #- mvn -U clean install
-- bash build.sh || travis_terminate 40;
-- bash deploy.sh || travis_terminate 40;
+- bash build.sh || travis_terminate 40.1;
+- bash deploy.sh || travis_terminate 40.1;
 
 #notifications:
 # - email: cildefonso@gmail.com
