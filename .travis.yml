@@ -33,7 +33,7 @@ before_install:
 addons:
   apt:
     sources:
-      - mysql-5.7-xenial
+      - mysql-5.7-trusty
     packages:
       - mysql-server
       
