@@ -6,7 +6,7 @@ jdk:
 # would just use default install/script but the ./mvnw script errors on travis
 # obviously this only works for maven builds right now...
 services:
-- mysql
+- mysql -u root -p
 before_install:
 # - sudo sudo apt-get purge mysql-client-core-5.7
 # - sudo apt-get autoremove
