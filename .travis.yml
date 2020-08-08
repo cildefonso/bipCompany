@@ -14,6 +14,7 @@ addons:
     packages:
       - mysql-server
       - mysql-client
+sudo: required
 dist: trusty
 before_script:
 #  - cp .env.travis .env
