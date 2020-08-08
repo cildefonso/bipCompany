@@ -83,7 +83,7 @@ public class CompanyController {
 	@PutMapping(value = "/{idCompany}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Company> atualizar(@Valid @PathVariable Long idCompany, @RequestBody Company company){
 		
-		if (!companyRepository.existsById(idCompany)) {
+		if (!companyRepository.exists(idCompany)) {
 			return ResponseEntity.notFound().build();
 			
 		}
@@ -97,7 +97,7 @@ public class CompanyController {
 	@DeleteMapping(value = "/{idCompany}", produces=MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> deletar(@PathVariable Long idCompany){
 		
-		if (!companyRepository.existsById(idCompany)) {
+		if (!companyRepository.exists(idCompany)) {
 			return ResponseEntity.notFound().build();
 		}
 		companyService.deletar(idCompany);

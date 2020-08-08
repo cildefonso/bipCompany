@@ -22,6 +22,6 @@ public class CompanyService {
 	}
 	
    public void deletar(Long idCompany) {
- 	companyRepository.deleteById(idCompany);
+ 	companyRepository.delete(idCompany);
    }
 }
