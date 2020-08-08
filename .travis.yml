@@ -3,7 +3,7 @@
 #https://www.youtube.com/watch?v=g0KsiCj3CgQ&list=PLT7ak8zxhXKjVTn3Lwc2MM4eEDfp811ys
 #https://www.youtube.com/watch?v=4QjqL9zwKkI
 #https://www.youtube.com/watch?v=5PQbxuK2pH4
-dist: trusty
+dist: xenial
 language: java
 sudo: false
 jdk:
@@ -23,15 +23,17 @@ before_install:
   - sudo apt-get autoremove
   - sudo apt-get autoclean
   - sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" install libmysqlclient-dev libmysqlclient18 mysql-client mysql-server
-  - mysql -u root -e "CREATE USER 'travis'@'%' IDENTIFIED BY ''"
-  - mysql -u root -e "CREATE USER 'travis'@'localhost' IDENTIFIED BY ''"
-  - mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'travis'@'%'"
-  - mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'travis'@'localhost'"
+  - mysql -u root -e 'CREATE DATABASE flyway;'
+  - mysql -u root flyway < db/migration/mysql/V1__tabela_empresa.sql
+  - mysql -u root flyway < db/migration/mysql/V2__init_empresa.sql
+  - mysql -u root flyway < db/migration/mysql/V3__table_company.sql
+  - mysql -u root flyway < db/migration/mysql/V4__init_company.sql
+  - mysql -u root flyway < db/migration/mysql/V5__table_user.sql
 
 addons:
   apt:
     sources:
-      - mysql-5.7-trusty
+      - mysql-5.7-xenial
     packages:
       - mysql-server
       
@@ -39,12 +41,7 @@ addons:
 before_script:
 #  - cp .env.travis .env
 #  - sudo mysql -e 'CREATE DATABASE testing;'
-  - mysql -u root -e 'CREATE DATABASE flyway;'
-  - mysql -u root flyway < db/migration/mysql/V1__tabela_empresa.sql
-  - mysql -u root flyway < db/migration/mysql/V2__init_empresa.sql
-  - mysql -u root flyway < db/migration/mysql/V3__table_company.sql
-  - mysql -u root flyway < db/migration/mysql/V4__init_company.sql
-  - mysql -u root flyway < db/migration/mysql/V5__table_user.sql
+
 
 install:
 - true
