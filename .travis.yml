@@ -15,13 +15,7 @@ addons:
       - mysql-server
 before_script:
   - mysql -e 'create database flyway;'
-#before_install:
-#    - sudo mysql -e 'CREATE DATABASE flyway;'
-#    - sudo mysql -e 'select database();'
-#    - sudo mysql -e 'SHOW DATABASES;'
-#    - sudo mysql -e 'USE flyway;'
-#    - sudo mysql -e 'select database();'
-#    - sudo mysql --version
+
 install:
 - true
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
