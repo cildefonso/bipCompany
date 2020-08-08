@@ -14,3 +14,5 @@ script:
 #- mvn clean install
 #- Teste
 - mvn -U clean install
+services:
+  - mysql
