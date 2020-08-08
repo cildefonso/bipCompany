@@ -1,10 +1,59 @@
+#https://www.youtube.com/watch?v=Uft5KBimzyk
+#https://www.youtube.com/watch?v=BFpSD2eoXUk
+#https://www.youtube.com/watch?v=g0KsiCj3CgQ&list=PLT7ak8zxhXKjVTn3Lwc2MM4eEDfp811ys
+#https://www.youtube.com/watch?v=4QjqL9zwKkI
+#https://www.youtube.com/watch?v=5PQbxuK2pH4
+#https://github.com/manjulaRathnayaka/API-Management-CI-CD-Example/blob/master/.travis.yml
+dist: xenial
+language: java
+sudo: false
+jdk:
+- oraclejdk9
+# would just use default install/script but the ./mvnw script errors on travis
+# obviously this only works for maven builds right now...
+services:
+- mysql -u root -p
+
+sudo: required
+before_install:
+#  - sudo rm /etc/apt/sources.list.d/mysql.list
+#  - sudo service mysql stop
+#  - sudo rm -rf /var/lib/mysql
+#  - sudo apt-get remove apparmor
+#  - sudo apt-get remove --purge mysql-common mysql-community-server mysql-community-client mysql-client libmysqlclient18 libmysqlclient-dev mysql-server
+#  - sudo apt-get autoremove
+#  - sudo apt-get autoclean
+#  - sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" install libmysqlclient-dev libmysqlclient18 mysql-client mysql-server
+  - mysql -u root -e 'CREATE DATABASE flyway;'
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V1__tabela_empresa.sql
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V2__init_empresa.sql
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V3__table_company.sql
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V4__init_company.sql
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V5__table_user.sql
+
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      
+#dist: xenial
+before_script:
+#  - cp .env.travis .env
+#  - sudo mysql -e 'CREATE DATABASE testing;'
+
+install:
+- true
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+#- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-#- mvn test -B
+- mvn test -B
 #- mvn clean install
 #- Teste
-#- mvn -U clean install
-- bash build.sh || travis_terminate 40.1;
-- bash deploy.sh || travis_terminate 40.1;
+- mvn -U clean install
+#- bash build.sh || travis_terminate 40;
+#- bash deploy.sh || travis_terminate 40;
 
-#notifications:
-# - email: cildefonso@gmail.com
+notifications:
+ - email: cildefonso@gmail.com, anacristinaestevesfernandes@gmail.com
