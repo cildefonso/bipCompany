@@ -7,8 +7,8 @@ jdk:
 # obviously this only works for maven builds right now...
 services:
 - mysql
-before_install:
-  - sudo -E apt-get -yq --no-install-suggests --no-install-recommends $(travis_apt_get_options) install mysql-server
+#before_install:
+#  - sudo -E apt-get -yq --no-install-suggests --no-install-recommends $(travis_apt_get_options) install mysql-server
 addons:
   apt:
     sources:
@@ -16,7 +16,8 @@ addons:
     packages:
       - mysql-server
 sudo: required
-dist: trusty
+#dist: trusty
+dist: xenial
 before_script:
 #  - cp .env.travis .env
 #  - sudo mysql -e 'CREATE DATABASE testing;'
