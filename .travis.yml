@@ -16,8 +16,8 @@ addons:
     packages:
       - mysql-server
 sudo: required
-#dist: trusty
-dist: xenial
+dist: trusty
+#dist: xenial
 before_script:
 #  - cp .env.travis .env
 #  - sudo mysql -e 'CREATE DATABASE testing;'
