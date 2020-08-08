@@ -14,7 +14,14 @@ addons:
     packages:
       - mysql-server
 before_script:
-  - mysql -e 'create database flyway;'
+  - mysql -u root -e 'CREATE DATABASE flyway;'
+  - mysql -u root flyway < db/migration/mysql/V1__tabela_empresa.sql
+  - mysql -u root flyway < db/migration/mysql/V2__init_empresa.sql
+  - mysql -u root flyway < db/migration/mysql/V3__table_company.sql
+  - mysql -u root flyway < db/migration/mysql/V4__init_company.sql
+  - mysql -u root flyway < db/migration/mysql/V5__table_user.sql
+  
+  #- mysql -e 'create database flyway;'
 
 install:
 - true
