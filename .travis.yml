@@ -24,11 +24,11 @@ before_install:
 #  - sudo apt-get autoclean
 #  - sudo apt-get -o Dpkg::Options::="--force-confdef" -o Dpkg::Options::="--force-confnew" install libmysqlclient-dev libmysqlclient18 mysql-client mysql-server
   - mysql -u root -e 'CREATE DATABASE flyway;'
-  - mysql -u root flyway < db/migration/mysql/V1__tabela_empresa.sql
-  - mysql -u root flyway < db/migration/mysql/V2__init_empresa.sql
-  - mysql -u root flyway < db/migration/mysql/V3__table_company.sql
-  - mysql -u root flyway < db/migration/mysql/V4__init_company.sql
-  - mysql -u root flyway < db/migration/mysql/V5__table_user.sql
+  - mysql -u root flyway < BipCompany/src/main/resources/db/migration/mysql/V1__tabela_empresa.sql
+  - mysql -u root flyway < BipCompany/src/main/resources/db/migration/mysql/V2__init_empresa.sql
+  - mysql -u root flyway < BipCompany/src/main/resources/db/migration/mysql/V3__table_company.sql
+  - mysql -u root flyway < BipCompany/src/main/resources/db/migration/mysql/V4__init_company.sql
+  - mysql -u root flyway < BipCompany/src/main/resources/db/migration/mysql/V5__table_user.sql
 
 addons:
   apt:
