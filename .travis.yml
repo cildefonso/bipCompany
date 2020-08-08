@@ -1,5 +1,8 @@
 #https://www.youtube.com/watch?v=Uft5KBimzyk
 #https://www.youtube.com/watch?v=BFpSD2eoXUk
+#https://www.youtube.com/watch?v=g0KsiCj3CgQ&list=PLT7ak8zxhXKjVTn3Lwc2MM4eEDfp811ys
+#https://www.youtube.com/watch?v=4QjqL9zwKkI
+#https://www.youtube.com/watch?v=5PQbxuK2pH4
 dist: trusty
 language: java
 sudo: false
@@ -10,9 +13,10 @@ jdk:
 services:
 - mysql -u root -p
 before_install:
+ - sudo apt install mysql-server
 # - sudo apt-get install mysql-server
 # - sudo aptitude install mysql-server
-# - sudo sudo apt-get purge mysql-client-core-5.7
+# - sudo apt-get purge mysql-client-core-5.7
 # - sudo apt-get autoremove
 #- sudo apt-get autoclean
 # - sudo apt install mysql-client-core-5.7
@@ -48,5 +52,5 @@ script:
 #- Teste
 - mvn -U clean install
 
-notifications:
- - email: cildefonso@gmail.com
+#notifications:
+# - email: cildefonso@gmail.com
