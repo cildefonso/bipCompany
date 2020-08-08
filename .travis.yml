@@ -15,4 +15,4 @@ script:
 #- mvn test -B
 #- mvn clean install
 #- Teste
-- mvn -U clean install
+#- mvn -U clean install
