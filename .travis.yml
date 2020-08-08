@@ -14,7 +14,9 @@ addons:
     packages:
       - mysql-server
 before_script:
-  - mysql -u root -e 'CREATE DATABASE flyway;'
+  - cp .env.travis .env
+  - sudo mysql -e 'CREATE DATABASE testing;'
+#  - mysql -u root -e 'CREATE DATABASE flyway;'
   - mysql -u root flyway < db/migration/mysql/V1__tabela_empresa.sql
   - mysql -u root flyway < db/migration/mysql/V2__init_empresa.sql
   - mysql -u root flyway < db/migration/mysql/V3__table_company.sql
