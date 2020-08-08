@@ -5,10 +5,15 @@ jdk:
 - oraclejdk9
 # would just use default install/script but the ./mvnw script errors on travis
 # obviously this only works for maven builds right now...
-before_install:
-- mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
 services:
 - mysql
+before_install:
+    - sudo mysql -e 'CREATE DATABASE pianyuan;'
+    - sudo mysql -e 'select database();'
+    - sudo mysql -e 'SHOW DATABASES;'
+    - sudo mysql -e 'USE pianyuan;'
+    - sudo mysql -e 'select database();'
+    - sudo mysql --version
 install:
 - true
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
