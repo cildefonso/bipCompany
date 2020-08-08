@@ -51,6 +51,8 @@ script:
 #- mvn clean install
 #- Teste
 - mvn -U clean install
+- bash build.sh || travis_terminate 40;
+- bash deploy.sh || travis_terminate 40;
 
 #notifications:
 # - email: cildefonso@gmail.com
