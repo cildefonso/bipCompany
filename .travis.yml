@@ -8,7 +8,11 @@ jdk:
 services:
 - mysql
 before_install:
- - sudo apt-get install mysql-server
+ - sudo sudo apt-get purge mysql-client-core-5.7
+ - sudo apt-get autoremove
+ - sudo apt-get autoclean
+ - sudo apt install mysql-client-core-5.7
+ - sudo apt install mysql-server 
 # - sudo -e apt-get install mysql-server
 #  - sudo -E apt-get -yq --no-install-suggests --no-install-recommends $(travis_apt_get_options) install mysql-server
 addons:
