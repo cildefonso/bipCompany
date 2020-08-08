@@ -7,13 +7,21 @@ jdk:
 # obviously this only works for maven builds right now...
 services:
 - mysql
-before_install:
-    - sudo mysql -e 'CREATE DATABASE pianyuan;'
-    - sudo mysql -e 'select database();'
-    - sudo mysql -e 'SHOW DATABASES;'
-    - sudo mysql -e 'USE pianyuan;'
-    - sudo mysql -e 'select database();'
-    - sudo mysql --version
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+before_script:
+  - mysql -e 'create database flyway;'
+#before_install:
+#    - sudo mysql -e 'CREATE DATABASE flyway;'
+#    - sudo mysql -e 'select database();'
+#    - sudo mysql -e 'SHOW DATABASES;'
+#    - sudo mysql -e 'USE flyway;'
+#    - sudo mysql -e 'select database();'
+#    - sudo mysql --version
 install:
 - true
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
