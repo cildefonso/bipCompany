@@ -5,6 +5,8 @@ jdk:
 - oraclejdk9
 # would just use default install/script but the ./mvnw script errors on travis
 # obviously this only works for maven builds right now...
+services:
+- mysql -u root -p
 before_install:
  - sudo apt-get install mysql-client
  - sudo apt-get install mysql-server
@@ -14,8 +16,7 @@ before_install:
 #- sudo apt-get autoclean
 # - sudo apt install mysql-client-core-5.7
 # - sudo -E apt install mysql-server 
-services:
-- mysql -u root -p
+
 
 #addons:
 #  apt:
