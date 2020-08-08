@@ -7,7 +7,8 @@ jdk:
 # obviously this only works for maven builds right now...
 services:
 - mysql
-#before_install:
+before_install:
+ - sudo -E apt-get install mysql-server
 #  - sudo -E apt-get -yq --no-install-suggests --no-install-recommends $(travis_apt_get_options) install mysql-server
 addons:
   apt:
