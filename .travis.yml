@@ -8,7 +8,6 @@ jdk:
 services:
 - mysql -u root -p
 before_install:
- - sudo apt-get install mysql-client
  - sudo apt-get install mysql-server
 # - sudo aptitude install mysql-server
 # - sudo sudo apt-get purge mysql-client-core-5.7
