@@ -6,6 +6,7 @@
 	<groupId>com.bip</groupId>
 	<artifactId>BipCompany</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
 	<name>BipCompanyApplication</name>
 	<description>Module the Company</description>
 
