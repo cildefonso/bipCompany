@@ -13,6 +13,9 @@ addons:
       - mysql-5.7-trusty
     packages:
       - mysql-server
+before_install:
+  - sudo apt-get update
+  - sudo apt-get -y install libxml2-dev
 before_script:
 #  - cp .env.travis .env
 #  - sudo mysql -e 'CREATE DATABASE testing;'
@@ -22,9 +25,7 @@ before_script:
   - mysql -u root flyway < db/migration/mysql/V3__table_company.sql
   - mysql -u root flyway < db/migration/mysql/V4__init_company.sql
   - mysql -u root flyway < db/migration/mysql/V5__table_user.sql
-before_install:
-  - sudo apt-get update
-  - sudo apt-get -y install libxml2-dev
+
 install:
 - true
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
