@@ -71,12 +71,8 @@ addons:
 #- bash build.sh || travis_terminate 40;
 #- bash deploy.sh || travis_terminate 40;
  
- notifications:  
-  email:  
-    recipients:  
-    - cildefonso@gmail.com
-    - anacristinaestevesfernandes@gmail.com
-    - deleonsimoni@gmail.com
-    on_success: always  
-    on_failure: always
+notifications:
+  email:
+    - one@example.com
+    - other@example.com
  
