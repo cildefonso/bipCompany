@@ -29,16 +29,14 @@ addons:
       - mysql-server
       
 
-#dist: trusty
 language: java
 sudo: false
 jdk:
 - oraclejdk9
 install: 
 - true
-- mvn install 
-- DskipTests=true 
-- Dmaven.javadoc.skip=true -B -V
+- mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=myorg_myrepo
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 #- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
 - mvn clean verify
