@@ -42,11 +42,12 @@ install:
 #- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
 - mvn test -B
-- mvn clean install
+#- mvn clean install
 #- Teste
-#- mvn -U clean install
+- mvn -U clean install
 #- bash build.sh || travis_terminate 40;
 #- bash deploy.sh || travis_terminate 40;
 
 notifications:
- - email: cildefonso@gmail.com; anacristinaestevesfernandes@gmail.com
+ - email: cildefonso@gmail.com
+ - email: anacristinaestevesfernandes@gmail.com
