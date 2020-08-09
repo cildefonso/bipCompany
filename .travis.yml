@@ -29,7 +29,7 @@ addons:
       - mysql-server
       
 
-dist: trusty
+#dist: trusty
 language: java
 sudo: false
 jdk:
