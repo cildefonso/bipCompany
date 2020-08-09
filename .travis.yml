@@ -52,7 +52,7 @@ install:
 script:
 #- mvn clean verify
 #- mvn install
-#- mvn test -B
+- mvn test -B
 #- mvn clean install
 #- Teste
 #- mvn -U clean install
