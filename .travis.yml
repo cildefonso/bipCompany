@@ -73,6 +73,5 @@ addons:
  
 notifications:
   email:
-    - cildefonso@gmail.com
-    - deleon.simoni@gmail.com
+    - cildefonso@gmail.com, deleon.simoni@gmail.com
  
