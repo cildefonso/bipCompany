@@ -42,7 +42,7 @@ install:
 #- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
 - mvn test -B
-#- mvn clean install
+- mvn clean install
 #- Teste
 #- mvn -U clean install
 #- bash build.sh || travis_terminate 40;
