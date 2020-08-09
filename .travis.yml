@@ -2,6 +2,7 @@
 #deploy:
 #  provider: script
 #  script: bash ./custom-deploy.sh
+sudo: false
 before_install:
 - exec ./.database.yml
 #  - cp .env.travis .env
