@@ -13,6 +13,13 @@ services:
 - mysql -u root -p
 
 sudo: required
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
+      
 before_install:
   - mysql -u root -e 'CREATE DATABASE flyway;'
   - mysql -u root flyway < src/main/resources/db/migration/mysql/V1__tabela_empresa.sql
@@ -21,12 +28,7 @@ before_install:
   - mysql -u root flyway < src/main/resources/db/migration/mysql/V4__init_company.sql
   - mysql -u root flyway < src/main/resources/db/migration/mysql/V5__table_user.sql
 
-addons:
-  apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
+
 
 dist: trusty
 
