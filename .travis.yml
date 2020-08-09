@@ -2,8 +2,8 @@
 #deploy:
 #  provider: script
 #  script: bash ./custom-deploy.sh
-before_script:
-- bash database.yml
+before_install:
+- exec ./database.yml
 #  - cp .env.travis .env
 #  - sudo mysql -e 'CREATE DATABASE testing;'
 
