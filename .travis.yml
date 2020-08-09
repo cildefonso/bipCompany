@@ -46,6 +46,7 @@ script:
   # other script steps might be done before running the actual analysis
    - mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=myorg_myrepo
   
+  
 #install: 
 #- true
 #- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
