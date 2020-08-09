@@ -8,11 +8,11 @@
 #  - sudo mysql -e 'CREATE DATABASE testing;'
 
 dist: xenial
-sudo: false
+#sudo: false
 services:
 - mysql -u root -p
 
-#sudo: required
+sudo: false #required
 before_install:
   - mysql -u root -e 'CREATE DATABASE flyway;'
   - mysql -u root flyway < src/main/resources/db/migration/mysql/V1__tabela_empresa.sql
@@ -34,10 +34,10 @@ language: java
 sudo: true
 jdk:
 - oraclejdk9
-addons:
-  apt:
-    packages:
-      - oracle-java9-installer
+#addons:
+#  apt:
+#    packages:
+#      - oracle-java9-installer
 before_install:
   - chmod +x mvnw
   
