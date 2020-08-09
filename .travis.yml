@@ -29,7 +29,6 @@ before_install:
   - mysql -u root flyway < src/main/resources/db/migration/mysql/V5__table_user.sql
 
 
-
 dist: trusty
 
 language: java
