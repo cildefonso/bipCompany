@@ -43,7 +43,7 @@ install:
 script:
 - mvn test -B
 - mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
-- mvn clean install
+#- mvn clean install
 jdk:
 - oraclejdk9
 #- Teste
