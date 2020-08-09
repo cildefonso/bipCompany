@@ -40,8 +40,9 @@ install: true
 
 #- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
-- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+
 - mvn test -B
+- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 #- mvn clean install
 #- Teste
 - mvn -U clean install
