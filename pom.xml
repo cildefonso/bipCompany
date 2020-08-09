@@ -142,19 +142,19 @@
         	<url>http://repo.spring.io/milestone</url>
     	</pluginRepository>
 	</pluginRepositories>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				
+			</plugin>
+		</plugins>
+	</build>
 	<!-- build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build-->
-	<build>
-		<plugins>
-			<!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-compiler-plugin -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
+			    <groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<version>3.6.3</version>
 				<configuration>
@@ -163,7 +163,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
-	</build>
+	 </build-->
 
 
 </project>
