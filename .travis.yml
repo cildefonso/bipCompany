@@ -1,14 +1,9 @@
-#https://www.youtube.com/watch?v=Uft5KBimzyk
-#https://www.youtube.com/watch?v=BFpSD2eoXUk
-#https://www.youtube.com/watch?v=g0KsiCj3CgQ&list=PLT7ak8zxhXKjVTn3Lwc2MM4eEDfp811ys
-#https://www.youtube.com/watch?v=4QjqL9zwKkI
-#https://www.youtube.com/watch?v=5PQbxuK2pH4
-#https://github.com/manjulaRathnayaka/API-Management-CI-CD-Example/blob/master/.travis.yml
-#https://cdn.travis-ci.com/github/DanielFran/jhipster-dependencies/jobs/152090244/config
-#https://www.programmersought.com/article/38541593964/
-#https://medium.com/tableless/integra%C3%A7%C3%A3o-cont%C3%ADnua-com-travis-ci-parte-02-5988d6dd95db
+
+#deploy:
+#  provider: script
+#  script: bash ./custom-deploy.sh
 before_script:
-- ./database.yml
+- bash database.yml
 #  - cp .env.travis .env
 #  - sudo mysql -e 'CREATE DATABASE testing;'
 
