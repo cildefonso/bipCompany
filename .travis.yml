@@ -8,12 +8,7 @@
 #  - sudo mysql -e 'CREATE DATABASE testing;'
 
 dist: xenial
-language: java
-sudo: false
-jdk:
-- oraclejdk9
-# would just use default install/script but the ./mvnw script errors on travis
-# obviously this only works for maven builds right now...
+
 services:
 - mysql -u root -p
 
@@ -33,14 +28,15 @@ addons:
     packages:
       - mysql-server
       
-#dist: xenial
-before_script:
-#  - cp .env.travis .env
-#  - sudo mysql -e 'CREATE DATABASE testing;'
 
+dist: trusty
+language: java
+sudo: false
+jdk:
+- oraclejdk9
 install: 
 - true
-- mvn install trusty
+- mvn install 
 - DskipTests=true 
 - Dmaven.javadoc.skip=true -B -V
 #- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
