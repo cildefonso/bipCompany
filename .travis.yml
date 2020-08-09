@@ -5,6 +5,7 @@
 #https://www.youtube.com/watch?v=5PQbxuK2pH4
 #https://github.com/manjulaRathnayaka/API-Management-CI-CD-Example/blob/master/.travis.yml
 #https://cdn.travis-ci.com/github/DanielFran/jhipster-dependencies/jobs/152090244/config
+#https://www.programmersought.com/article/38541593964/
 dist: xenial
 language: java
 sudo: false
@@ -38,7 +39,9 @@ before_script:
 
 install: 
 - true
-- mvn install #-DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn install 
+- DskipTests=true 
+- Dmaven.javadoc.skip=true -B -V
 #- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
 - mvn clean verify
