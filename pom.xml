@@ -121,7 +121,7 @@
             <url>http://repo.spring.io/milestone</url>
         </repository>
         
-	    <repository>
+	    <!-- repository>
 	        <id>central</id>
 	        <name>Central Repository</name>
 	        <url>https://repo.maven.apache.org/maven2</url>
@@ -129,7 +129,7 @@
 	        <snapshots>
 	            <enabled>false</enabled>
 	        </snapshots>
-	    </repository>
+	    </repository-->
 
 	</repositories>
 	<pluginRepositories>
