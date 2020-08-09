@@ -2,25 +2,45 @@
 #deploy:
 #  provider: script
 #  script: bash ./custom-deploy.sh
-before_install:
-- echo pwd
-- exec home/travis/.database.yml
+#before_install:
+#- exec ./.database.yml
 #  - cp .env.travis .env
 #  - sudo mysql -e 'CREATE DATABASE testing;'
 
-dist: trusty
+dist: xenial
 language: java
 sudo: false
 jdk:
 - oraclejdk9
 # would just use default install/script but the ./mvnw script errors on travis
 # obviously this only works for maven builds right now...
+services:
+- mysql -u root -p
+
+sudo: required
+before_install:
+  - mysql -u root -e 'CREATE DATABASE flyway;'
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V1__tabela_empresa.sql
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V2__init_empresa.sql
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V3__table_company.sql
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V4__init_company.sql
+  - mysql -u root flyway < src/main/resources/db/migration/mysql/V5__table_user.sql
+
+addons:
+  apt:
+    sources:
+      - mysql-5.7-trusty
+    packages:
+      - mysql-server
       
 #dist: xenial
+before_script:
+#  - cp .env.travis .env
+#  - sudo mysql -e 'CREATE DATABASE testing;'
 
 install: 
 - true
-- mvn install 
+- mvn install trusty
 - DskipTests=true 
 - Dmaven.javadoc.skip=true -B -V
 #- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
@@ -35,18 +55,5 @@ script:
 #- bash deploy.sh || travis_terminate 40;
 
 notifications:
- - email: cildefonso@gmail.com
- - email: anacristinaestevesfernandes@gmail.com
+ - email: cildefonso@gmail.com;anacristinaestevesfernandes@gmail.com
  
- 
-# blacklist
-#branches:
-#  except:
-#    - legacy
-#    - experimental
-
-# whitelist
-#branches:
-#  only:
-#    - master
-#    - stable
