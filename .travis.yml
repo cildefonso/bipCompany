@@ -28,6 +28,7 @@ addons:
     packages:
       - mysql-server
 
+dist: trusty
 language: java
 sudo: false
 jdk:
