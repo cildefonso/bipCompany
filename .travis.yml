@@ -4,6 +4,7 @@
 #https://www.youtube.com/watch?v=4QjqL9zwKkI
 #https://www.youtube.com/watch?v=5PQbxuK2pH4
 #https://github.com/manjulaRathnayaka/API-Management-CI-CD-Example/blob/master/.travis.yml
+#https://cdn.travis-ci.com/github/DanielFran/jhipster-dependencies/jobs/152090244/config
 dist: xenial
 language: java
 sudo: false
