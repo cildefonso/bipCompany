@@ -38,13 +38,13 @@ before_script:
 
 install:
 - true
-- mvn install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
+- mvn clean install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 #- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
 - mvn test -B
 - mvn clean install
 #- Teste
-- mvn -U clean install
+#- mvn -U clean install
 #- bash build.sh || travis_terminate 40;
 #- bash deploy.sh || travis_terminate 40;
 
