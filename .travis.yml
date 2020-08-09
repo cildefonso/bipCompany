@@ -38,6 +38,7 @@ addons:
     organization: "sonarcloud_organization_key" # the key of the org you chose at step #3
     token: 
         secure: "d6188a6e016ac038ee6c03206b679be6535508b3"
+        
 script:
   # other script steps might be done before running the actual analysis
   - mvn clean verify sonar:sonar -Pcoverage -Dsonar.projectKey=myorg_myrepo
