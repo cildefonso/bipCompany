@@ -12,7 +12,7 @@ sudo: false
 services:
 - mysql -u root -p
 
-sudo: required
+#sudo: required
 before_install:
   - mysql -u root -e 'CREATE DATABASE flyway;'
   - mysql -u root flyway < src/main/resources/db/migration/mysql/V1__tabela_empresa.sql
