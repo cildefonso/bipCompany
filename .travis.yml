@@ -6,36 +6,21 @@
 #https://github.com/manjulaRathnayaka/API-Management-CI-CD-Example/blob/master/.travis.yml
 #https://cdn.travis-ci.com/github/DanielFran/jhipster-dependencies/jobs/152090244/config
 #https://www.programmersought.com/article/38541593964/
-dist: xenial
+#https://medium.com/tableless/integra%C3%A7%C3%A3o-cont%C3%ADnua-com-travis-ci-parte-02-5988d6dd95db
+before_script:
+- ./database.yml
+#  - cp .env.travis .env
+#  - sudo mysql -e 'CREATE DATABASE testing;'
+
+dist: trusty
 language: java
 sudo: false
 jdk:
 - oraclejdk9
 # would just use default install/script but the ./mvnw script errors on travis
 # obviously this only works for maven builds right now...
-services:
-- mysql -u root -p
-
-sudo: required
-before_install:
-  - mysql -u root -e 'CREATE DATABASE flyway;'
-  - mysql -u root flyway < src/main/resources/db/migration/mysql/V1__tabela_empresa.sql
-  - mysql -u root flyway < src/main/resources/db/migration/mysql/V2__init_empresa.sql
-  - mysql -u root flyway < src/main/resources/db/migration/mysql/V3__table_company.sql
-  - mysql -u root flyway < src/main/resources/db/migration/mysql/V4__init_company.sql
-  - mysql -u root flyway < src/main/resources/db/migration/mysql/V5__table_user.sql
-
-addons:
-  apt:
-    sources:
-      - mysql-5.7-trusty
-    packages:
-      - mysql-server
       
 #dist: xenial
-before_script:
-#  - cp .env.travis .env
-#  - sudo mysql -e 'CREATE DATABASE testing;'
 
 install: 
 - true
@@ -56,3 +41,16 @@ script:
 notifications:
  - email: cildefonso@gmail.com
  - email: anacristinaestevesfernandes@gmail.com
+ 
+ 
+# blacklist
+#branches:
+#  except:
+#    - legacy
+#    - experimental
+
+# whitelist
+#branches:
+#  only:
+#    - master
+#    - stable
