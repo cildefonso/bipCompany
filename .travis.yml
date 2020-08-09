@@ -5,7 +5,7 @@
 #https://www.youtube.com/watch?v=5PQbxuK2pH4
 #https://github.com/manjulaRathnayaka/API-Management-CI-CD-Example/blob/master/.travis.yml
 #https://cdn.travis-ci.com/github/DanielFran/jhipster-dependencies/jobs/152090244/config
-dist: trusty #xenial
+dist: xenial
 language: java
 sudo: false
 jdk:
@@ -42,12 +42,11 @@ install:
 #- ./mvnw install -DskipTests=true -Dmaven.javadoc.skip=true -B -V
 script:
 - mvn test -B
-#- mvn clean install
+- mvn clean install
 #- Teste
 - mvn -U clean install
 #- bash build.sh || travis_terminate 40;
 #- bash deploy.sh || travis_terminate 40;
 
 notifications:
- - email: cildefonso@gmail.com
- - email: anacristinaestevesfernandes@gmail.com
+ - email: cildefonso@gmail.com; anacristinaestevesfernandes@gmail.com
